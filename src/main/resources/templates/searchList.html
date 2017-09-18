@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment::header"/>
+<title>博客查询显示页面</title>
+<body>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-4">
+				<h3>
+					<em><small><span class="marker"><strong>俞志君的博客</strong></span></small></em>
+				</h3>
+			</div>
+		</div>
+
+		<div class="row" style="padding-top: 10px">
+			<div class="col-md-12">
+				<!-- 这是一个导航栏 -->
+				<nav class="navbar navbar-default">
+					<!-- 固定格式 -->
+					<div class="container-fluid">				    
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+						<!-- 导航元素，是以列表做出来的 -->
+						<ul class="nav navbar-nav">
+							<li class="active"><a class="navbar-brand" href="#">博客首页</a></li>
+							<li><a class="navbar-brand" href="#">我的相册</a></li>
+							<li><a class="navbar-brand" href="#">资源分享</a></li>
+							<li><a class="navbar-brand" href="#">学习心得</a></li>
+						</ul>
+
+					</div><!-- /.container-fluid -->
+				</nav>
+
+			</div>
+		</div>
+
+		<div class="row">
+			
+			<div class="col-md-9">
+				
+				<div class="page-header">
+					<h3>
+						<em><span class="marker">查询博客显示</span></em>
+					</h3>
+				</div>
+				
+				<div class="row" th:each="searchBlog:${searchBlogList}">
+					<div class="col-md-12">
+						<h2>
+							<a href="#" th:text="${searchBlog.title}">
+								测试标题
+							</a>
+						</h2>
+						<p th:text="${searchBlog.summary}">
+							测试文章摘要
+						</p>
+						<div style="float:left">
+							<a class="btn" href="#">查看全文 »</a>
+						</div>
+						<div style="float:right">
+							<small th:text="${searchBlog.releaseDateBlog}"></small>
+						</div>
+						<hr/>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 col-md-offset-5">
+						<ul class="pagination pagination-centered">
+							
+							<li><a th:text="${pageBlog.prePage}==0?${pageBlog.firstPage}:${pageBlog.prePage}">xx</a></li>
+							<li><a href="#" th:href="@{/blog/search( pageNum=${pageBlog.prePage}==0?${pageBlog.firstPage}:${pageBlog.prePage},searchParam=${searchParam})}">上一页</a></li>
+							
+							<li><a href="#" th:href="@{/blog/search(pageNum=${pageBlog.nextPage}==0?${pageBlog.lastPage}:${pageBlog.nextPage},searchParam=${searchParam})}">下一页</a></li>
+							<li><a th:text="${pageBlog.nextPage}==0?${pageBlog.lastPage}:${pageBlog.nextPage}">xx</a></li>
+							
+							<li><a href="#" th:onclick="'toPage(\''+${pageBlog.firstPage}+'\',\''+${pageBlog.lastPage}+'\',\''+${searchParam}+'\');'">跳转至</a></li>
+							<li><a><input type="text" id="pageNum" value="1" style="width:20px;height:20px;" /></a></li>
+							
+							<li><a>总页数</a></li>
+							<li><a th:text="${pageBlog.lastPage}">xx</a></li>
+
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+<script th:src="@{/js/searchList.js}" type="text/javascript"></script>
+
+</body>
+</html>
