@@ -1,4 +1,4 @@
-package domain;
+package com.birdsh.chen.domain;
 
 import lombok.Data;
 

@@ -2,7 +2,7 @@ package com.birdsh.chen.dao;
 
 import org.apache.ibatis.annotations.Select;
 
-import domain.Blogger;
+import com.birdsh.chen.domain.Blogger;
 
 public interface BloggerDao {
 

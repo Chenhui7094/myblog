@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.birdsh.chen.dao.BloggerDao;
 import com.birdsh.chen.service.BloggerService;
 
-import domain.Blogger;
+import com.birdsh.chen.domain.Blogger;
 @Service("bloggerService")
 public class BloggerServiceImpl implements BloggerService {
 

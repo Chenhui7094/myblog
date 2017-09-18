@@ -1,6 +1,6 @@
 package com.birdsh.chen.service;
 
-import domain.Blogger;
+import com.birdsh.chen.domain.Blogger;
 
 public interface BloggerService {
 

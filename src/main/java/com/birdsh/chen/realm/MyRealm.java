@@ -11,7 +11,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import com.birdsh.chen.service.BloggerService;
-import domain.Blogger;
+import com.birdsh.chen.domain.Blogger;
 
 /**
  * @ClassName: MyRealm.java 
