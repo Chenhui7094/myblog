@@ -36,7 +36,7 @@ public class MyRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String username = (String) token.getPrincipal();// 根据刚刚传过来的token获取用户名
+        String username = (String) token.getPrincipal();// 根据刚刚传过来(从controller传过来的)的token获取用户名
         Blogger blogger = bloggerService.findByUsername(username);//只是根据用户名查询出，不涉及密码
         if (blogger != null) {
             System.out.println("验证信息:"+ blogger);
